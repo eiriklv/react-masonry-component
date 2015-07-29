@@ -1,0 +1,32 @@
+{
+  "name": "react-masonry-component",
+  "version": "0.0.1",
+  "main": "./lib/index",
+  "description": "A masonry component for React.js",
+  "dependencies": {
+    "masonry": "eiriklv/masonry",
+    "imagesloaded": "eiriklv/imagesloaded"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/eiriklv/react-masonry-component.git"
+  },
+  "keywords": [
+    "react",
+    "mixin",
+    "masonry",
+    "packery",
+    "isotope",
+    "react-component"
+  ],
+  "author": "Eirik Vullum <evullum@gmail.com> (http://www.evconsult.no/)",
+  "bugs": {
+    "url": "https://github.com/eiriklv/react-masonry-component/issues"
+  },
+  "homepage": "https://github.com/eiriklv/react-masonry-component",
+  "license": "MIT"
+}
