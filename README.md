@@ -7,8 +7,7 @@ React Masonry Component
 A React.js Masonry component. (Also available as a [mixin](https://github.com/eiriklv/react-masonry-mixin) if needed)
 
 #### Live demo:
-[hearsay.me (web)](http://www.hearsay.me)
-[hearsay.me (github)](https://github.com/eiriklv/hearsay-frontend)
+[hearsay.me](http://www.hearsay.me)
 
 #### Usage:
 
