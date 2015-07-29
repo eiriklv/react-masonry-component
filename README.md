@@ -22,7 +22,7 @@ A React.js Masonry component
 
 ```js 
 var React = require('react');
-var MasonryMixin = require('react-masonry-component')(React);
+var Masonry = require('react-masonry-component')(React);
  
 var masonryOptions = {
     transitionDuration: 0
