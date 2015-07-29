@@ -4,7 +4,7 @@ React Masonry Component
 [![npm version](https://badge.fury.io/js/react-masonry-component.svg)](http://badge.fury.io/js/react-masonry-component)
 
 #### Introduction:
-A React.js Masonry component
+A React.js Masonry component. (Also available as a [mixin](https://github.com/eiriklv/react-masonry-mixin) if needed)
 
 #### Live demo:
 [hearsay.me (web)](http://www.hearsay.me)
