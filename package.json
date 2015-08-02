@@ -1,6 +1,6 @@
 {
   "name": "react-masonry-component",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "./lib/index",
   "description": "A masonry component for React.js",
   "dependencies": {
