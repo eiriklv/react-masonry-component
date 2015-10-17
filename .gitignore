@@ -36,7 +36,10 @@
 ehthumbs.db
 Thumbs.db
 
+# Editors #
+###########
+.idea
 
-# Custom
-#####################
+# Custom #
+##########
 /node_modules
