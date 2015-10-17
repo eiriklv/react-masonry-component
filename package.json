@@ -24,6 +24,12 @@
     "react-component"
   ],
   "author": "Eirik Vullum <evullum@gmail.com> (http://www.evconsult.no/)",
+  "contributors": [
+    {
+      "name": "Marwan Butrous",
+      "email": "marwan.butrous@protonmail.ch"
+    }
+  ],
   "bugs": {
     "url": "https://github.com/eiriklv/react-masonry-component/issues"
   },
