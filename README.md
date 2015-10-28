@@ -6,6 +6,9 @@ React Masonry Component
 #### Introduction:
 A React.js Masonry component. (Also available as a [mixin](https://github.com/eiriklv/react-masonry-mixin) if needed)
 
+#### Which version should I use?
+React Masonary Component 2.x.x is compatible with React 0.14 and above only. For older versions of React, use a 1.x.x version of React Masonry Component.
+
 #### Live demo:
 [hearsay.me](http://www.hearsay.me)
 

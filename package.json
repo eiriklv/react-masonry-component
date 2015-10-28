@@ -1,6 +1,6 @@
 {
   "name": "react-masonry-component",
-  "version": "1.0.4",
+  "version": "2.0.0",
   "main": "./lib/index",
   "description": "A masonry component for React.js",
   "dependencies": {
@@ -24,6 +24,12 @@
     "react-component"
   ],
   "author": "Eirik Vullum <evullum@gmail.com> (http://www.evconsult.no/)",
+  "contributors": [
+    {
+      "name": "Marwan Butrous",
+      "email": "marwan.butrous@protonmail.ch"
+    }
+  ],
   "bugs": {
     "url": "https://github.com/eiriklv/react-masonry-component/issues"
   },
