@@ -7,7 +7,7 @@ React Masonry Component
 A React.js Masonry component. (Also available as a [mixin](https://github.com/eiriklv/react-masonry-mixin) if needed)
 
 #### Which version should I use?
-React Masonary Component 2.x.x is compatible with React 0.14 and above only. For older versions of React, use a 1.x.x version of React Masonry Component.
+React Masonry Component 2.x.x is compatible with React 0.14 and above only. For older versions of React, use a 1.x.x version of React Masonry Component.
 
 #### Live demo:
 [hearsay.me](http://www.hearsay.me)
@@ -22,14 +22,14 @@ React Masonary Component 2.x.x is compatible with React 0.14 and above only. For
 
 * example code
 
-```js 
+```js
 var React = require('react');
 var Masonry = require('react-masonry-component')(React);
- 
+
 var masonryOptions = {
     transitionDuration: 0
 };
- 
+
 var Gallery = React.createClass({
     render: function () {
         var childElements = this.props.elements.map(function(element){
@@ -39,7 +39,7 @@ var Gallery = React.createClass({
                 </li>
             );
         });
-        
+
         return (
             <Masonry
                 className={'my-gallery-class'} // default ''
