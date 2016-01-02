@@ -1,4 +1,4 @@
-const TestUtils = require('react-addons-test-utils');
+const TestUtils = require('react/lib/ReactTestUtils');
 const React = require('react');
 const ReactDOM = require('react-dom');
 const MasonryComponent = require('../lib')(React);

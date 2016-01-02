@@ -4,8 +4,8 @@
   "main": "./lib/index",
   "description": "A masonry component for React.js",
   "dependencies": {
-    "masonry": "eiriklv/masonry",
-    "imagesloaded": "eiriklv/imagesloaded"
+    "imagesloaded": "^4.0.0",
+    "masonry-layout": "^3.3.2"
   },
   "devDependencies": {
     "babel-core": "^6.3.26",
@@ -21,7 +21,6 @@
     "karma-webpack": "^1.7.0",
     "mocha": "^2.3.4",
     "react": "^0.14.5",
-    "react-addons-test-utils": "^0.14.5",
     "react-dom": "^0.14.5",
     "webpack": "^1.12.9"
   },
