@@ -7,9 +7,27 @@
     "masonry": "eiriklv/masonry",
     "imagesloaded": "eiriklv/imagesloaded"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "babel-core": "^6.3.26",
+    "babel-loader": "^6.2.0",
+    "babel-preset-es2015": "^6.3.13",
+    "babel-preset-react": "^6.3.13",
+    "expect": "^1.13.4",
+    "imports-loader": "^0.6.5",
+    "karma": "^0.13.16",
+    "karma-chrome-launcher": "^0.2.2",
+    "karma-cli": "^0.1.2",
+    "karma-mocha": "^0.2.1",
+    "karma-webpack": "^1.7.0",
+    "mocha": "^2.3.4",
+    "react": "^0.14.5",
+    "react-addons-test-utils": "^0.14.5",
+    "react-dom": "^0.14.5",
+    "webpack": "^1.12.9"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "karma start spec/setup/karma.conf.js",
+    "dev": "karma start spec/setup/karma.conf.js --no-single-run"
   },
   "repository": {
     "type": "git",
