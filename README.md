@@ -3,6 +3,9 @@ React Masonry Component
 
 [![npm version](https://badge.fury.io/js/react-masonry-component.svg)](http://badge.fury.io/js/react-masonry-component)
 
+### The below information is for the 3.0.0 release which is currently still in beta.
+If you are looking for the 1.x or 2.x versions, you can switch to that branch above.
+
 #### Introduction:
 A React.js Masonry component. (Also available as a [mixin](https://github.com/eiriklv/react-masonry-mixin) if needed)
 
