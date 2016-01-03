@@ -7,7 +7,7 @@ React Masonry Component
 A React.js Masonry component. (Also available as a [mixin](https://github.com/eiriklv/react-masonry-mixin) if needed)
 
 #### Which version should I use?
-React Masonry Component 2.x.x is compatible with React 0.14 and above only. For older versions of React, use a 1.x.x version of React Masonry Component.
+React Masonry Component 3.x.x is compatible with React 0.14 and above only. For older versions of React, use a 1.x.x version of React Masonry Component.
 
 #### Live demo:
 [hearsay.me](http://www.hearsay.me)
@@ -18,13 +18,13 @@ React Masonry Component 2.x.x is compatible with React 0.14 and above only. For 
 * You can optionally include Masonry as a script tag if the should be any reason for doing so
 `<script src='//cdnjs.cloudflare.com/ajax/libs/masonry/3.1.5/masonry.pkgd.min.js' />`
 
-* To use the component just require the module and inject `React`
+* To use the component just require the module.
 
 * example code
 
 ```js
 var React = require('react');
-var Masonry = require('react-masonry-component')(React);
+var Masonry = require('react-masonry-component');
 
 var masonryOptions = {
     transitionDuration: 0
@@ -48,6 +48,41 @@ var Gallery = React.createClass({
                 disableImagesLoaded={false} // default false
             >
                 {childElements}
+            </Masonry>
+        );
+    }
+});
+
+module.exports = Gallery;
+```
+
+#### Custom Props
+
+* You can also include your own custom props - EG: inline-style and event handlers.
+
+```js
+var React = require('react');
+var Masonry = require('react-masonry-component');
+
+var masonryOptions = {
+    transitionDuration: 0
+};
+
+var style = {
+    backgroundColor: 'tomato'
+};
+
+function handler() {};
+
+var Gallery = React.createClass({
+    render: function () {
+        return (
+            <Masonry
+                className={'my-gallery-class'}
+                style={style}
+                onClick={handler}
+            >
+                {...}
             </Masonry>
         );
     }
