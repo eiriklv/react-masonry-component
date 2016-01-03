@@ -90,3 +90,30 @@ var Gallery = React.createClass({
 
 module.exports = Gallery;
 ```
+
+#### Using with Webpack
+
+* Because webpack resolves AMD first, you need to use the imports-loader in order to disable AMD
+and require as commonJS modules.
+
+##### Dependencies
+First ensure you have the imports-loader installed
+```sh
+npm install imports-loader --save
+```
+
+Then add the rules for the imports-loader to your webpack config.
+The `babel-loader` is used below to show how you can use the 2 together.
+```js
+loaders: [
+    {
+        test: /\.jsx?$/,
+        exclude: /node_modules/,
+        loader: 'babel'
+    },
+    {
+        test: /masonry|imagesloaded|fizzy\-ui\-utils|desandro\-|outlayer|get\-size|doc\-ready|eventie|eventemitter/,
+        loader: 'imports?define=>false&this=>window'
+    }
+]
+```
