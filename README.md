@@ -102,6 +102,7 @@ First ensure you have the imports-loader installed
 npm install imports-loader --save
 ```
 
+##### Usage
 Then add the rules for the imports-loader to your webpack config.
 The `babel-loader` is used below to show how you can use the 2 together.
 ```js
