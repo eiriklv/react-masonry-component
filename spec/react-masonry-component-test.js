@@ -1,7 +1,7 @@
 const TestUtils = require('react/lib/ReactTestUtils');
 const React = require('react');
 const ReactDOM = require('react-dom');
-const MasonryComponent = require('../lib')(React);
+const MasonryComponent = require('../lib');
 const expect = require('expect');
 
 const masonryOptions = {

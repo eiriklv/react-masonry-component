@@ -24,6 +24,9 @@
     "react-dom": "^0.14.5",
     "webpack": "^1.12.9"
   },
+  "peerDependencies": {
+    "react": ">= 0.14.0"
+  },
   "scripts": {
     "test": "karma start spec/setup/karma.conf.js",
     "dev": "karma start spec/setup/karma.conf.js --no-single-run"
