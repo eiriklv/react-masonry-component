@@ -98,4 +98,18 @@ describe('React Masonry Component', function() {
             expect(elements[i].style.top).toEqual(positions[i].top + 'px');
         }
     });
+
+    it('should allow custom props', function() {
+        const handler = () => {};
+        const component = TestUtils.renderIntoDocument(<MasonryComponent onClick={handler} test="testProp"/>);
+
+        expect(component.props).toEqual({
+            disableImagesLoaded: false,
+            options: {},
+            className: '',
+            elementType: 'div',
+            onClick: handler,
+            test: 'testProp'
+        });
+    });
 });
