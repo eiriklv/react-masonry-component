@@ -64,10 +64,9 @@ describe('React Masonry Component', function() {
         </MasonryComponent>;
 
         let div = document.createElement('div');
-        div.id = 'root';
         document.body.appendChild(div);
 
-        ReactDOM.render(Component, document.getElementById('root'));
+        ReactDOM.render(Component, div);
 
         const elements = document.querySelectorAll('.item');
         const positions = {
@@ -111,5 +110,16 @@ describe('React Masonry Component', function() {
             onClick: handler,
             test: 'testProp'
         });
+    });
+
+    it('should provide a reference to the Masonry instance', function() {
+        const Wrapper = React.createClass({
+            render() {
+                return <MasonryComponent ref={c => this.masonry = c.masonry} />
+            }
+        });
+
+        const component = TestUtils.renderIntoDocument(<Wrapper/>);
+        expect(component.masonry.layout).toExist();
     });
 });
