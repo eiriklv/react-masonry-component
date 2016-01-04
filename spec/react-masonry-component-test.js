@@ -120,6 +120,7 @@ describe('React Masonry Component', function() {
         });
 
         const component = TestUtils.renderIntoDocument(<Wrapper/>);
-        expect(component.masonry.layout).toExist();
+        const ml = require('masonry-layout');
+        expect(component.masonry instanceof ml).toEqual(true);
     });
 });
