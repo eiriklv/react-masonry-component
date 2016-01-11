@@ -3,8 +3,9 @@ React Masonry Component
 
 [![npm version](https://badge.fury.io/js/react-masonry-component.svg)](http://badge.fury.io/js/react-masonry-component)
 
-### The below information is for the 3.0.0 release which is currently still in beta.
-If you are looking for the 1.x or 2.x versions, you can switch to that branch above.
+### The below information is for the 3.0.0 release.
+Follow these links for [1.x.x documentation](https://github.com/eiriklv/react-masonry-component/tree/v1)
+and [2.x.x documentation](https://github.com/eiriklv/react-masonry-component/tree/v2)
 
 ### Table of contents
 1. [Which version should I use?](#which-version-should-i-use)
