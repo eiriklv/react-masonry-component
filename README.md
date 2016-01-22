@@ -2,6 +2,7 @@ React Masonry Component
 =======================
 
 [![npm version](https://badge.fury.io/js/react-masonry-component.svg)](http://badge.fury.io/js/react-masonry-component)
+[![Build Status](https://travis-ci.org/eiriklv/react-masonry-component.svg?branch=master)](https://travis-ci.org/eiriklv/react-masonry-component)
 
 ### The below information is for the 3.0.0 release.
 Follow these links for [1.x.x documentation](https://github.com/eiriklv/react-masonry-component/tree/v1)
