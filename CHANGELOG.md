@@ -1,5 +1,9 @@
 3.0.0
 =====
+- update masonry-layout to ^4.0.0
+
+3.0.0
+=====
 - Add peer dependency on React >= 0.14
 - No longer need to pass in React or execute component as a function
 - Use NPM dependencies instead of forked dependencies
