@@ -33,7 +33,7 @@ React Masonry Component 3.x.x is compatible with React 0.14 and above only. For 
 #### Usage:
 
 * The component is bundled with Masonry, so no additional dependencies needed!
-* You can optionally include Masonry as a script tag if the should be any reason for doing so
+* You can optionally include Masonry as a script tag if there should be any reason for doing so
 `<script src='//cdnjs.cloudflare.com/ajax/libs/masonry/3.1.5/masonry.pkgd.min.js' />`
 
 * To use the component just require the module.
