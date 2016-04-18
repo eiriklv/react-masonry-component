@@ -1,3 +1,7 @@
+4.0.2
+=====
+- Fix peer dependency typos...(derp)
+
 4.0.1
 =====
 - Update React peer dependencies to include >=15.0.0

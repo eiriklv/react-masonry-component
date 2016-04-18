@@ -28,7 +28,7 @@
     "webpack": "^1.12.9"
   },
   "peerDependencies": {
-    "react": ">= 0.14.0 || >=15.0.0"
+    "react": "^0.14.0 || ^15.0.0-0"
   },
   "scripts": {
     "test": "karma start spec/setup/karma.conf.js",
