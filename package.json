@@ -23,12 +23,12 @@
     "karma-webpack": "^1.7.0",
     "mocha": "^2.3.4",
     "phantomjs": "^1.9.19",
-    "react": "^0.14.5",
-    "react-dom": "^0.14.5",
+    "react": "^15.0.1",
+    "react-dom": "^15.0.1",
     "webpack": "^1.12.9"
   },
   "peerDependencies": {
-    "react": ">= 0.14.0"
+    "react": ">= 0.14.0 || >=15.0.0"
   },
   "scripts": {
     "test": "karma start spec/setup/karma.conf.js",

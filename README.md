@@ -4,16 +4,11 @@ React Masonry Component
 [![npm version](https://badge.fury.io/js/react-masonry-component.svg)](http://badge.fury.io/js/react-masonry-component)
 [![Build Status](https://travis-ci.org/eiriklv/react-masonry-component.svg?branch=master)](https://travis-ci.org/eiriklv/react-masonry-component)
 
-### The below information is for the 4.0.0 release.
-Follow these links for [1.x.x documentation](https://github.com/eiriklv/react-masonry-component/tree/v1)
-and [2.x.x documentation](https://github.com/eiriklv/react-masonry-component/tree/v2)
-
 ### IE8 support
-if you wish to have IE8 support, v2 with React 0.14 support is the highest version available.
+if you wish to have IE8 support, v2 with React 0.14 is the highest version available.
 
 ### Table of contents
-1. [Which version should I use?](#which-version-should-i-use)
-2. [Usage](#usage)
+1. [Usage](#usage)
   1. [Basic usage](#basic-usage)
   2. [Custom props](#custom-props)
   3. [Accessing Masonry instance](#accessing-masonry-instance)
@@ -23,9 +18,6 @@ if you wish to have IE8 support, v2 with React 0.14 support is the highest versi
 
 #### Introduction:
 A React.js Masonry component. (Also available as a [mixin](https://github.com/eiriklv/react-masonry-mixin) if needed)
-
-#### Which version should I use?
-React Masonry Component 3.x.x is compatible with React 0.14 and above only. For older versions of React, use a 1.x.x version of React Masonry Component.
 
 #### Live demo:
 [hearsay.me](http://www.hearsay.me)
