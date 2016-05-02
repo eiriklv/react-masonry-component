@@ -1,3 +1,7 @@
+4.0.3
+=====
+- Fix layout of prepended elements
+
 4.0.2
 =====
 - Fix peer dependency typos...(derp)
