@@ -12,6 +12,7 @@ if you wish to have IE8 support, v2 with React 0.14 is the highest version avail
   1. [Basic usage](#basic-usage)
   2. [Custom props](#custom-props)
   3. [Accessing Masonry instance](#accessing-masonry-instance)
+  4. [Events](#events)
 3. [Using with Webpack](#using-with-webpack)
   1. [Dependencies](#dependencies)
   2. [Webpack config](#webpack-config)
@@ -133,6 +134,30 @@ you can do so by using `refs`.
 
  module.exports = Gallery;
  ```
+
+##### Events
+
+- `onImagesLoaded` - triggered after all images have been loaded
+
+```jsx
+var Gallery = React.createClass({
+    componentDidMount: function() {
+        this.hide();
+    },
+    handleImagesLoaded: function(imagesLoadedInstance) {
+        this.show();
+    },
+    render: function(){
+        return (
+            <Masonry
+                onImagesLoaded={this.handleImagesLoaded}
+            >
+                {...}
+            </Masonry>
+        )
+    }
+});
+```
 
 #### Using with Webpack
 Because webpack resolves AMD first, you need to use the imports-loader in order to disable AMD
