@@ -1,3 +1,7 @@
+4.0.4
+=====
+- Call masonry.destroy() on component unmount
+
 4.0.3
 =====
 - Fix layout of prepended elements
