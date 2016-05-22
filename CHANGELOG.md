@@ -1,3 +1,8 @@
+4.1.0
+=====
+- Add onImagesLoaded event
+- Use lodash.assign instead of own extend function
+
 4.0.4
 =====
 - Call masonry.destroy() on component unmount

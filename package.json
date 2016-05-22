@@ -5,6 +5,7 @@
   "description": "A masonry component for React.js",
   "dependencies": {
     "imagesloaded": "^4.0.0",
+    "lodash.assign": "^4.0.9",
     "masonry-layout": "^4.0.0"
   },
   "devDependencies": {
