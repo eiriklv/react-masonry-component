@@ -11,45 +11,43 @@ const masonryOptions = {
 
 describe( 'React Masonry Component', function() {
   it( 'should set correct default props', function() {
-      const component = TestUtils.renderIntoDocument( <MasonryComponent /> );
+    const component = TestUtils.renderIntoDocument( <MasonryComponent /> );
 
-      expect( component.props ).toEqual( {
-          disableImagesLoaded: false,
-          options:             {},
-          className:           '',
-          elementType:         'div'
-      } );
+    expect( component.props ).toEqual( {
+      disableImagesLoaded: false,
+      options:             {},
+      className:           '',
+      elementType:         'div'
+    } );
   } );
 
   it( 'should render container with correct elementType', function() {
-      const componentDiv = TestUtils.renderIntoDocument( <MasonryComponent /> );
-      const componentSection = TestUtils.renderIntoDocument( <MasonryComponent elementType="section" /> );
+    const componentDiv = TestUtils.renderIntoDocument( <MasonryComponent /> );
+    const componentSection = TestUtils.renderIntoDocument( <MasonryComponent elementType="section" /> );
 
-      expect( TestUtils.scryRenderedDOMComponentsWithTag( componentDiv,     'div' ).length     ).toEqual( 1 );
-      expect( TestUtils.scryRenderedDOMComponentsWithTag( componentSection, 'section' ).length ).toEqual( 1 );
-      expect( TestUtils.scryRenderedDOMComponentsWithTag( componentSection, 'div' ).length     ).toEqual( 0 );
+    expect( TestUtils.scryRenderedDOMComponentsWithTag( componentDiv,     'div' ).length     ).toEqual( 1 );
+    expect( TestUtils.scryRenderedDOMComponentsWithTag( componentSection, 'section' ).length ).toEqual( 1 );
+    expect( TestUtils.scryRenderedDOMComponentsWithTag( componentSection, 'div' ).length     ).toEqual( 0 );
   } );
 
   it( 'should render container with correct className', function() {
-      const component = TestUtils.renderIntoDocument( <MasonryComponent/> );
-      const componentWithClass = TestUtils.renderIntoDocument( <MasonryComponent className="my-class"/> );
+    const component = TestUtils.renderIntoDocument( <MasonryComponent/> );
+    const componentWithClass = TestUtils.renderIntoDocument( <MasonryComponent className="my-class"/> );
 
-      expect( TestUtils.scryRenderedDOMComponentsWithClass( component,          ''         ).length ).toEqual( 1 );
-      expect( TestUtils.scryRenderedDOMComponentsWithClass( componentWithClass, 'my-class' ).length ).toEqual( 1 );
+    expect( TestUtils.scryRenderedDOMComponentsWithClass( component,          ''         ).length ).toEqual( 1 );
+    expect( TestUtils.scryRenderedDOMComponentsWithClass( componentWithClass, 'my-class' ).length ).toEqual( 1 );
   } );
 
   it( 'should render children', function() {
     const component = TestUtils.renderIntoDocument(
       <MasonryComponent className="container" elementType="ul" options={masonryOptions}>
         {
-          childrenElements.map( ( cn, i ) => {
-            return <li key={i} className={`item ${cn}`}></li>
-          } )
+          childrenElements.map( ( cn, i ) => <li key={i} className={`item ${cn}`}></li> )
         }
       </MasonryComponent>
     );
-
     const children = TestUtils.scryRenderedDOMComponentsWithClass( component, 'item' );
+
     expect( children.length ).toEqual( 5 );
   } );
 
@@ -65,6 +63,7 @@ describe( 'React Masonry Component', function() {
     );
 
     let div = document.createElement( 'div' );
+
     document.body.appendChild( div );
 
     ReactDOM.render( Component, div );
@@ -121,7 +120,7 @@ describe( 'React Masonry Component', function() {
     } );
     const component = TestUtils.renderIntoDocument( <Wrapper /> );
     const ml = require( 'masonry-layout' );
-    
+
     expect( component.masonry instanceof ml ).toEqual( true );
   } );
 } );
