@@ -34,71 +34,66 @@ A React.js Masonry component. (Also available as a [mixin](https://github.com/ei
 ##### Basic usage
 
 ```js
-var React = require('react');
-var Masonry = require('react-masonry-component');
+import React from 'react';
+import Masonry from 'react-masonry-component';
 
-var masonryOptions = {
+const masonryOptions = {
     transitionDuration: 0
 };
 
-var Gallery = React.createClass({
-    render: function () {
-        var childElements = this.props.elements.map(function(element){
-           return (
-                <li className="image-element-class">
-                    <img src={element.src} />
-                </li>
-            );
-        });
+export default class Gallery extends React.Component {
+    render ( ) {
+        const childElements = this.props.elements.map( element => (
+            <li className="image-element-class">
+                <img src={element.src} />
+            </li>
+        ) );
 
         return (
             <Masonry
                 className={'my-gallery-class'} // default ''
-                elementType={'ul'} // default 'div'
-                options={masonryOptions} // default {}
-                disableImagesLoaded={false} // default false
+                elementType={'ul'}             // default 'div'
+                options={masonryOptions}       // default {}
+                disableImagesLoaded={false}    // default false
             >
                 {childElements}
             </Masonry>
-        );
+        )
     }
-});
-
-module.exports = Gallery;
+}
 ```
 
 ##### Custom props
 You can also include your own custom props - EG: inline-style and event handlers.
 
 ```js
-var React = require('react');
-var Masonry = require('react-masonry-component');
+import React from 'react';
+import Masonry from 'react-masonry-component';
 
-var masonryOptions = {
+const masonryOptions = {
     transitionDuration: 0
 };
 
-var style = {
+const style = {
     backgroundColor: 'tomato'
 };
 
-var Gallery = React.createClass({
-    handleClick: function() { },
 
-    render: function () {
+export default class Gallery extends React.Component {
+    handleClick ( ) { /* ... */ }
+    
+    render ( ) {
         return (
             <Masonry
                 className={'my-gallery-class'}
                 style={style}
-                onClick={this.handleClick}
+                onClick={e => this.handleClick()}
             >
                 {...}
             </Masonry>
-        );
+        )
     }
-});
-
-module.exports = Gallery;
+}
 ```
 
 ##### Accessing Masonry instance
@@ -106,33 +101,30 @@ Should you need to access the instance of Masonry (for example to listen to maso
 you can do so by using `refs`.
 
  ```js
- var React = require('react');
- var Masonry = require('react-masonry-component');
+ import React from 'react';
+ import Masonry from 'react-masonry-component';
 
+ export default class Gallery extends React.Component {
+     handleLayoutComplete ( ) { }
 
- var Gallery = React.createClass({
-    handleLayoutComplete: function() { },
+     componentDidMount ( ) {
+         this.masonry.on( 'layoutComplete', this.handleLayoutComplete );
+     }
 
-    componentDidMount: function() {
-        this.masonry.on('layoutComplete', this.handleLayoutComplete);
-    },
+     componentWillUnmount ( ) {
+         this.masonry.off( 'layoutComplete', this.handleLayoutComplete );
+     }
 
-    componentWillUnmount: function() {
-        this.masonry.off('layoutComplete', this.handleLayoutComplete);
-    },
-
-     render: function () {
+     render ( ) {
          return (
              <Masonry
-                 ref={function(c) {this.masonry = c.masonry;}.bind(this)}
+                 ref={c => this.masonry = c.masonry}
              >
                  {...}
              </Masonry>
-         );
+         )
      }
- });
-
- module.exports = Gallery;
+ }
  ```
 
 ##### Events
@@ -140,14 +132,16 @@ you can do so by using `refs`.
 - `onImagesLoaded` - triggered after all images have been loaded
 
 ```jsx
-var Gallery = React.createClass({
-    componentDidMount: function() {
+export default class Gallery extends React.Component {
+    componentDidMount ( ) {
         this.hide();
-    },
-    handleImagesLoaded: function(imagesLoadedInstance) {
+    }
+    
+    handleImagesLoaded ( imagesLoadedInstance ) {
         this.show();
-    },
-    render: function(){
+    }
+    
+    render ( ) {
         return (
             <Masonry
                 onImagesLoaded={this.handleImagesLoaded}
@@ -156,7 +150,7 @@ var Gallery = React.createClass({
             </Masonry>
         )
     }
-});
+}
 ```
 
 #### Using with Webpack
