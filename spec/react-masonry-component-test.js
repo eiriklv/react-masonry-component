@@ -1,8 +1,8 @@
-import { TestUtils } from 'react/lib/ReactTestUtils';
-import React from 'react';
-import ReactDOM from 'react-dom';
-import MasonryComponent from '../lib';
-import { expect } from 'expect';
+const TestUtils = require( 'react/lib/ReactTestUtils' );
+const expect = require( 'expect' );
+const React = require( 'react' );
+const ReactDOM = require( 'react-dom' );
+const MasonryComponent = require( '../lib' ).default;
 
 const childrenElements = [ 'h4', 'h3', 'h3', 'w2', 'h2' ];
 const masonryOptions = {
@@ -53,8 +53,8 @@ describe( 'React Masonry Component', function() {
 
   it('should apply Masonry goodness', function() {
     const Component = (
-      <MasonryComponent className="container" 
-                        elementType="ul" 
+      <MasonryComponent className="container"
+                        elementType="ul"
                         options={masonryOptions}>
       {
         childrenElements.map( ( cn, i ) => <li key={i} className={`item ${cn}`}></li> )
