@@ -32,7 +32,7 @@ A React.js Masonry component. (Also available as a [mixin](https://github.com/ei
 * To use the component just require the module.
 
 ##### Basic usage
-
+``` npm install --save react-masonry-component```
 ```js
 var React = require('react');
 var Masonry = require('react-masonry-component');
