@@ -57,6 +57,7 @@ var Gallery = React.createClass({
                 elementType={'ul'} // default 'div'
                 options={masonryOptions} // default {}
                 disableImagesLoaded={false} // default false
+                updateOnEachImageLoad={false} // default false and works only if disableImagesLoaded is false
             >
                 {childElements}
             </Masonry>
