@@ -2,6 +2,7 @@
 =====
 - Add onImagesLoaded event
 - Use lodash.assign instead of own extend function
+- Add option to fire imagesloaded after each image is loaded 
 
 4.0.4
 =====

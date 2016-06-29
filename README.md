@@ -138,7 +138,7 @@ you can do so by using `refs`.
 
 ##### Events
 
-- `onImagesLoaded` - triggered after all images have been loaded
+- `onImagesLoaded` - triggered when all images are loaded or after each image is loaded when `updateOnEachImageLoad` is set to `true`
 
 ```jsx
 var Gallery = React.createClass({
