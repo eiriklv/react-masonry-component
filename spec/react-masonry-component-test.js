@@ -16,6 +16,7 @@ describe('React Masonry Component', function() {
 
         expect(component.props).toEqual({
             disableImagesLoaded: false,
+            updateOnEachImageLoad: false,
             options: {},
             className: '',
             elementType: 'div'
@@ -104,6 +105,7 @@ describe('React Masonry Component', function() {
 
         expect(component.props).toEqual({
             disableImagesLoaded: false,
+            updateOnEachImageLoad: false,
             options: {},
             className: '',
             elementType: 'div',
