@@ -1,63 +1,62 @@
 {
-  "name": "react-masonry-component",
+  "name": "react-isotope-component",
   "version": "4.0.4",
   "main": "./lib/index",
-  "description": "A masonry component for React.js",
+  "description": "An isotope component for React.js – forked from eiriklv's react-masonry-component",
   "dependencies": {
     "imagesloaded": "^4.0.0",
-    "lodash.assign": "^4.0.9",
-    "masonry-layout": "^4.0.0"
+    "isotope-layout": "^3.0.1",
+    "lodash": "^4.13.1",
+    "react": "^15.2.0",
+    "react-dom": "^15.2.0"
   },
   "devDependencies": {
     "babel-core": "^6.3.26",
-    "babel-loader": "^6.2.0",
-    "babel-preset-es2015": "^6.9.0",
-    "babel-preset-react": "^6.3.13",
-    "expect": "^1.13.4",
-    "function-bind": "^1.0.2",
-    "imports-loader": "^0.6.5",
-    "karma": "^0.13.16",
-    "karma-babel-preprocessor": "^6.0.1",
-    "karma-chrome-launcher": "^0.2.2",
-    "karma-cli": "^0.1.2",
-    "karma-mocha": "^0.2.1",
-    "karma-phantomjs-launcher": "^0.2.3",
-    "karma-webpack": "^1.7.0",
-    "mocha": "^2.3.4",
-    "phantomjs": "^1.9.19",
-    "react": "^15.0.1",
-    "react-dom": "^15.0.1",
-    "webpack": "^1.12.9"
-  },
-  "peerDependencies": {
-    "react": "^0.14.0 || ^15.0.0-0"
+    "babel-jest": "^13.0.0",
+    "babel-preset-es2015": "*",
+    "babel-preset-jest": "*",
+    "babel-preset-react": "*",
+    "expect": "^1.20.2",
+    "jest-cli": "*",
+    "react-addons-test-utils": "^15.2.0"
   },
   "scripts": {
-    "test": "karma start spec/setup/karma.conf.js",
-    "dev": "karma start spec/setup/karma.conf.js --no-single-run"
+    "test": "jest"
+  },
+  "jest": {
+    "unmockedModulePathPatterns": [
+      "<rootDir>/node_modules/react/",
+      "<rootDir>/node_modules/react-dom/",
+      "<rootDir>/node_modules/react-addons-test-utils/"
+    ]
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/eiriklv/react-masonry-component.git"
+    "url": "git://github.com/wjramos/react-isotope-component.git"
   },
   "keywords": [
     "react",
     "mixin",
     "masonry",
+    "isotope",
     "packery",
     "isotope",
     "react-component"
   ],
-  "author": "Eirik Vullum <evullum@gmail.com> (http://www.evconsult.no/)",
+  "author": "Jordan Ramos <me@jordanramos.com> (http://www.jordanramos.com/)",
   "contributors": [
+    {
+      "name": "Eirik Vullum",
+      "email": "evullum@gmail.com"
+    },
     {
       "name": "Marwan Butrous",
       "email": "marwan.butrous@protonmail.ch"
     }
   ],
   "bugs": {
-    "url": "https://github.com/eiriklv/react-masonry-component/issues"
+    "url": "https://github.com/wjramos/react-isotope-component/issues"
   },
-  "homepage": "https://github.com/eiriklv/react-masonry-component",
+  "homepage": "https://github.com/wjramos/react-isotope-component",
   "license": "MIT"
 }
