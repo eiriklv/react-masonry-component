@@ -8,7 +8,7 @@ declare module "react-masonry-component" {
         onImagesLoaded?: (instance: any) => void;
         options?: Object;
         className?: string;
-        elementType: string;
+        elementType?: string;
     }
 
     export var Masonry: React.Component<MasonryPropTypes, void>;
