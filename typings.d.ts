@@ -1,6 +1,7 @@
-import * as React from "react";
+/// <reference path='typings/react/react.d.ts' />
 
 declare module "react-masonry-component" {
+    import React = __React;
 
     interface MasonryPropTypes {
         disableImagesLoaded?: boolean;
