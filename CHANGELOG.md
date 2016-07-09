@@ -1,3 +1,8 @@
+4.2.0
+=====
+- Adds Typescript 2.0 typings definition
+- Fixes unknownProps error (no longer passes unknown props to masonry el)
+
 4.1.0
 =====
 - Add onImagesLoaded event
