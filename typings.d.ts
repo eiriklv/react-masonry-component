@@ -24,6 +24,7 @@ declare module "react-masonry-component" {
         options?: MasonryOptions;
         className?: string;
         elementType?: string;
+        style?: Object;
     }
 
     export default class Masonry extends Component<MasonryPropTypes, void> { }
