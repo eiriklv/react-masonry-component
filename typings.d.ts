@@ -28,5 +28,5 @@ declare module "react-masonry-component" {
     }
 
     const Masonry: ComponentClass<MasonryPropTypes>;
-    export = Masonry;
+    export default Masonry;
 }
