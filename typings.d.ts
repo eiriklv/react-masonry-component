@@ -1,4 +1,4 @@
-import { Component } from "react";
+import { ComponentClass } from "react";
 
 declare module "react-masonry-component" {
 
@@ -27,5 +27,6 @@ declare module "react-masonry-component" {
         style?: Object;
     }
 
-    export default class Masonry extends Component<MasonryPropTypes, void> { }
+    const Masonry: ComponentClass<MasonryPropTypes>;
+    export default Masonry;
 }
