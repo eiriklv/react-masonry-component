@@ -1,6 +1,10 @@
+4.2.3-beta
+==========
+- removes willReceiveProps function as possibly not needed
+
 4.2.2
 =====
-- exports component as `default` to support import statement 
+- exports component as `default` to support import statement
 
 4.2.0
 =====
