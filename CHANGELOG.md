@@ -1,3 +1,7 @@
+4.2.2
+=====
+- exports component as `default` to support import statement 
+
 4.2.0
 =====
 - Adds Typescript 2.0 typings definition
