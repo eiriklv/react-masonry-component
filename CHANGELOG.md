@@ -1,6 +1,11 @@
+4.3.0
+=====
+- Removes willReceiveProps function as not needed
+- Make resizable children trigger masonry layout
+
 4.2.3-beta
 ==========
-- removes willReceiveProps function as possibly not needed
+- Removes willReceiveProps function as possibly not needed
 
 4.2.2
 =====
