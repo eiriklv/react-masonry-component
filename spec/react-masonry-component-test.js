@@ -15,6 +15,7 @@ describe('React Masonry Component', function() {
         const component = TestUtils.renderIntoDocument(<MasonryComponent/>);
 
         expect(component.props).toEqual({
+            enableResizableChildren: false,
             disableImagesLoaded: false,
             updateOnEachImageLoad: false,
             options: {},
@@ -104,6 +105,7 @@ describe('React Masonry Component', function() {
         const component = TestUtils.renderIntoDocument(<MasonryComponent onClick={handler} test="testProp"/>);
 
         expect(component.props).toEqual({
+			enableResizableChildren: false,
             disableImagesLoaded: false,
             updateOnEachImageLoad: false,
             options: {},
