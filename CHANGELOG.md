@@ -1,3 +1,7 @@
+4.3.1
+=====
+- Fixes unmount when monitor children resize is disabled
+
 4.3.0
 =====
 - Removes willReceiveProps function as not needed
@@ -9,7 +13,7 @@
 
 4.2.2
 =====
-- exports component as `default` to support import statement
+- Exports component as `default` to support import statement
 
 4.2.0
 =====
