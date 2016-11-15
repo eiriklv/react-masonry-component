@@ -20,7 +20,9 @@ describe('React Masonry Component', function() {
             updateOnEachImageLoad: false,
             options: {},
             className: '',
-            elementType: 'div'
+            elementType: 'div',
+            onLayoutComplete: () => {},
+            onRemoveComplete: () => {}
         });
     });
 
@@ -102,7 +104,7 @@ describe('React Masonry Component', function() {
 
     it('should allow custom props', function() {
         const handler = () => {};
-        const component = TestUtils.renderIntoDocument(<MasonryComponent onClick={handler} test="testProp"/>);
+        const component = TestUtils.renderIntoDocument(<MasonryComponent onClick={handler}/>);
 
         expect(component.props).toEqual({
 			enableResizableChildren: false,
@@ -112,7 +114,8 @@ describe('React Masonry Component', function() {
             className: '',
             elementType: 'div',
             onClick: handler,
-            test: 'testProp'
+            onLayoutComplete: () => {},
+            onRemoveComplete: () => {}
         });
     });
 
@@ -126,5 +129,41 @@ describe('React Masonry Component', function() {
         const component = TestUtils.renderIntoDocument(<Wrapper/>);
         const ml = require('masonry-layout');
         expect(component.masonry instanceof ml).toEqual(true);
+    });
+
+    it('should support events as props', function(done) {
+        let passed = {
+            layoutComplete: false,
+            removeComplete: false
+        };
+        const layoutEventHandler = () => {
+            passed.layoutComplete = true;
+        };
+        const removeEventHandler = () => {
+            passed.removeComplete = true;
+        };
+
+        let masonry;
+
+        let Wrapper = React.createClass({
+            render() {
+                return (
+                    <MasonryComponent
+                        onLayoutComplete={layoutEventHandler}
+                        onRemoveComplete={removeEventHandler}
+                        ref={c => masonry = c.masonry} />
+                );
+            }
+        });
+
+        const component = TestUtils.renderIntoDocument(<Wrapper />);
+
+        setTimeout(() => {
+            expect(passed).toEqual({
+                layoutComplete: true,
+                removeComplete: true
+            });
+            done();
+        }, 1500);
     });
 });
