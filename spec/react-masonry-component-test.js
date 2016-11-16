@@ -21,8 +21,8 @@ describe('React Masonry Component', function() {
             options: {},
             className: '',
             elementType: 'div',
-            onLayoutComplete: () => {},
-            onRemoveComplete: () => {}
+            onLayoutComplete: function() {},
+            onRemoveComplete: function() {}
         });
     });
 
@@ -103,7 +103,7 @@ describe('React Masonry Component', function() {
     });
 
     it('should allow custom props', function() {
-        const handler = () => {};
+        const handler = function() {};
         const component = TestUtils.renderIntoDocument(<MasonryComponent onClick={handler}/>);
 
         expect(component.props).toEqual({
@@ -114,8 +114,8 @@ describe('React Masonry Component', function() {
             className: '',
             elementType: 'div',
             onClick: handler,
-            onLayoutComplete: () => {},
-            onRemoveComplete: () => {}
+            onLayoutComplete: function() {},
+            onRemoveComplete: function() {}
         });
     });
 
@@ -136,10 +136,10 @@ describe('React Masonry Component', function() {
             layoutComplete: false,
             removeComplete: false
         };
-        const layoutEventHandler = () => {
+        const layoutEventHandler = function() {
             passed.layoutComplete = true;
         };
-        const removeEventHandler = () => {
+        const removeEventHandler = function() {
             passed.removeComplete = true;
         };
 
@@ -158,12 +158,14 @@ describe('React Masonry Component', function() {
 
         const component = TestUtils.renderIntoDocument(<Wrapper />);
 
-        setTimeout(() => {
+        this.timeout(3000);
+
+        setTimeout(function() {
             expect(passed).toEqual({
                 layoutComplete: true,
                 removeComplete: true
             });
             done();
-        }, 1500);
+        }, 2000);
     });
 });
