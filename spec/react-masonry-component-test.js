@@ -145,18 +145,29 @@ describe('React Masonry Component', function() {
 
         let masonry;
 
+        let children = childrenElements.slice().map(function(child, index) {
+            return <li key={index}>{child}</li>
+        });
+
         let Wrapper = React.createClass({
             render() {
                 return (
                     <MasonryComponent
                         onLayoutComplete={layoutEventHandler}
                         onRemoveComplete={removeEventHandler}
-                        ref={c => masonry = c.masonry} />
+                        ref={c => masonry = c.masonry}>
+                        {children}
+                    </MasonryComponent>
                 );
             }
         });
 
-        const component = TestUtils.renderIntoDocument(<Wrapper />);
+        let div = document.createElement('div');
+        document.body.appendChild(div);
+
+        ReactDOM.render(<Wrapper/>, div);
+
+        masonry.remove(children[0]);
 
         this.timeout(3000);
 
