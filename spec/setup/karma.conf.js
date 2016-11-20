@@ -19,7 +19,7 @@ module.exports = function (config) {
                     {
                         test: /\.jsx?$/,
                         exclude: /node_modules/,
-                        loader: 'babel-loader'
+                        loader: 'babel'
                     },
                     {
                         test: /masonry|imagesloaded|fizzy\-ui\-utils|desandro\-|outlayer|get\-size|doc\-ready|eventie|eventemitter/,
