@@ -1,3 +1,7 @@
+4.3.2
+=====
+- Fixes TypeScript to use `export as namespace` syntax
+
 4.3.1
 =====
 - Fixes unmount when monitor children resize is disabled

@@ -29,6 +29,7 @@
     "mocha": "^2.3.4",
     "phantomjs": "^1.9.19",
     "react": "^15.0.1",
+    "react-addons-test-utils": "^15.4.0",
     "react-dom": "^15.0.1",
     "webpack": "^1.12.9"
   },

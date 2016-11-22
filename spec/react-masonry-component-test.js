@@ -1,4 +1,4 @@
-const TestUtils = require('react/lib/ReactTestUtils');
+const TestUtils = require('react-addons-test-utils');
 const React = require('react');
 const ReactDOM = require('react-dom');
 const MasonryComponent = require('../lib');
@@ -98,22 +98,6 @@ describe('React Masonry Component', function() {
             expect(elements[i].style.left).toEqual(positions[i].left + 'px');
             expect(elements[i].style.top).toEqual(positions[i].top + 'px');
         }
-    });
-
-    it('should allow custom props', function() {
-        const handler = () => {};
-        const component = TestUtils.renderIntoDocument(<MasonryComponent onClick={handler} test="testProp"/>);
-
-        expect(component.props).toEqual({
-			enableResizableChildren: false,
-            disableImagesLoaded: false,
-            updateOnEachImageLoad: false,
-            options: {},
-            className: '',
-            elementType: 'div',
-            onClick: handler,
-            test: 'testProp'
-        });
     });
 
     it('should provide a reference to the Masonry instance', function() {
