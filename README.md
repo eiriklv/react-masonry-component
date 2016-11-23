@@ -15,7 +15,7 @@ if you wish to have IE8 support, v2 with React 0.14 is the highest version avail
   4. [Events](#events)
 3. [Using with Webpack](#using-with-webpack)
   1. [Dependencies](#dependencies)
-  2. [Webpack config](#webpack-config)
+  2. [Webpack config \[DEPRECATED\]](#webpack-config)
 
 #### Introduction:
 A React.js Masonry component. (Also available as a [mixin](https://github.com/eiriklv/react-masonry-mixin) if needed)
@@ -164,7 +164,7 @@ var Gallery = React.createClass({
 });
 ```
 
-#### Using with Webpack
+#### Using with Webpack [Deprecated: this hack is no longer needed with masonry-layout 4.x]
 Because webpack resolves AMD first, you need to use the imports-loader in order to disable AMD
 and require as commonJS modules.
 
