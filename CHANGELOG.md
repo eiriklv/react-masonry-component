@@ -1,3 +1,7 @@
+4.4.0
+=====
+- Handle `onLayoutComplete` and `onRemoveComplete` callback handlers as part of the component  
+
 4.3.2
 =====
 - Fixes TypeScript to use `export as namespace` syntax

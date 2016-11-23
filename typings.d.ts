@@ -23,6 +23,8 @@ export interface MasonryPropTypes {
     className?: string;
     elementType?: string;
     style?: Object;
+    onLayoutComplete?: (instance: any) => void;
+    onRemoveComplete?: (instance: any) => void;
 }
 
 declare const Masonry: ComponentClass<MasonryPropTypes>;
