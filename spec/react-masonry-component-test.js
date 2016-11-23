@@ -20,7 +20,9 @@ describe('React Masonry Component', function() {
             updateOnEachImageLoad: false,
             options: {},
             className: '',
-            elementType: 'div'
+            elementType: 'div',
+            onLayoutComplete: function() {},
+            onRemoveComplete: function() {}
         });
     });
 
@@ -110,5 +112,54 @@ describe('React Masonry Component', function() {
         const component = TestUtils.renderIntoDocument(<Wrapper/>);
         const ml = require('masonry-layout');
         expect(component.masonry instanceof ml).toEqual(true);
+    });
+
+    it('should support events as props', function(done) {
+        let passed = {
+            layoutComplete: false,
+            removeComplete: false
+        };
+        const layoutEventHandler = function() {
+            passed.layoutComplete = true;
+        };
+        const removeEventHandler = function() {
+            passed.removeComplete = true;
+        };
+
+        let masonry;
+
+        let children = childrenElements.slice().map(function(child, index) {
+            return <li key={index}>{child}</li>
+        });
+
+        let Wrapper = React.createClass({
+            render() {
+                return (
+                    <MasonryComponent
+                        onLayoutComplete={layoutEventHandler}
+                        onRemoveComplete={removeEventHandler}
+                        ref={c => masonry = c.masonry}>
+                        {children}
+                    </MasonryComponent>
+                );
+            }
+        });
+
+        let div = document.createElement('div');
+        document.body.appendChild(div);
+
+        ReactDOM.render(<Wrapper/>, div);
+
+        masonry.remove(children[0]);
+
+        this.timeout(3000);
+
+        setTimeout(function() {
+            expect(passed).toEqual({
+                layoutComplete: true,
+                removeComplete: true
+            });
+            done();
+        }, 2000);
     });
 });

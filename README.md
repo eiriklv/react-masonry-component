@@ -139,6 +139,8 @@ you can do so by using `refs`.
 ##### Events
 
 - `onImagesLoaded` - triggered when all images are loaded or after each image is loaded when `updateOnEachImageLoad` is set to `true`
+- `onLayoutComplete` - triggered after a layout and all positioning transitions have completed. 
+- `onRemoveComplete` - triggered after an item element has been removed
 
 ```jsx
 var Gallery = React.createClass({
@@ -152,6 +154,8 @@ var Gallery = React.createClass({
         return (
             <Masonry
                 onImagesLoaded={this.handleImagesLoaded}
+                onLayoutComplete={laidOutItems => this.handleLayoutComplete(laidOutItems)}
+                onRemoveComplete={removedItems => this.handleRemoveComplete(removedItems)}
             >
                 {...}
             </Masonry>
