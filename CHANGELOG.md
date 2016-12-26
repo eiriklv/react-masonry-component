@@ -1,3 +1,7 @@
+5.0.0
+=====
+- old children are now passed to the diffing algorithm without filtering 
+ 
 4.4.0
 =====
 - Handle `onLayoutComplete` and `onRemoveComplete` callback handlers as part of the component  
