@@ -6,14 +6,17 @@ module.exports = function (config) {
         singleRun: true,
         frameworks: ['mocha'],
         files: [
-            'test-style.css',
-            'tests.webpack.js'
+            {pattern: '../*-test.js', watched: false},
+            {pattern: '../**/*-test.js', watched: false},
+            'test-style.css'
         ],
         preprocessors: {
-            'tests.webpack.js': ['webpack']
+          '../*-test.js': ['webpack', 'sourcemap'],
+          '../**/*-test.js': ['webpack', 'sourcemap']
         },
         reporters: ['dots'],
         webpack: {
+            devtool: 'inline-source-map',
             module: {
                 loaders: [
                     {
