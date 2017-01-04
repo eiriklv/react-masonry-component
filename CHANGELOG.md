@@ -1,3 +1,8 @@
+5.0.1
+=====
+- reverted 5.0.0 change
+- Fixes removing first element
+
 5.0.0
 =====
 - old children are now passed to the diffing algorithm without filtering 
