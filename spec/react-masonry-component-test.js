@@ -198,6 +198,7 @@ describe('React Masonry Component', function() {
         expect(secondElements[i].style.top).toEqual(secondPositions[i].top + 'px');
       }
     });
+
     it('should correctly layout new elements when completely replacing child items [transitionDuration zero]', function() {
       let wrapperContext;
       class Wrapper extends React.Component {
@@ -242,6 +243,155 @@ describe('React Masonry Component', function() {
       for (let i = 0; i < secondElements.length; i++) {
         expect(secondElements[i].style.left).toEqual(secondPositions[i].left + 'px');
         expect(secondElements[i].style.top).toEqual(secondPositions[i].top + 'px');
+      }
+    });
+  });
+
+  describe('removing elements', function() {
+    const localChildrenElements = [
+      { k: 0, cn: 'h4' },
+      { k: 1, cn: 'h3' },
+      { k: 2, cn: 'h3' },
+      { k: 3, cn: 'w2' },
+      { k: 4, cn: 'h2' }];
+
+    const firstPositions = {
+      0: {
+        left: 0,
+        top: 0
+      },
+      1: {
+        left: 60,
+        top: 0
+      },
+      2: {
+        left: 120,
+        top: 0
+      },
+      3: {
+        left: 60,
+        top: 70
+      },
+      4: {
+        left: 0,
+        top: 90
+      }
+    };
+
+    const secondPositions = {
+      0: {
+        left: 0,
+        top: 0
+      },
+      1: {
+        left: 60,
+        top: 0
+      },
+      2: {
+        left: 0,
+        top: 70
+      },
+      3: {
+        left: 120,
+        top: 0
+      }
+    };
+
+    const failureMessage = (index, property, expectedValue, actualValue, phase) =>
+      `property "${property}" expected to be ${expectedValue} but is ${actualValue} on phase "${phase}" - index ${index}`;
+
+    const expectElementPositionToMatch = (element, expectedPosition, index, phase) => {
+      expect(element.style.left).toEqual(expectedPosition.left + 'px',
+          failureMessage(index, 'left', expectedPosition.left + 'px', element.style.left, phase))
+      expect(element.style.top).toEqual(expectedPosition.top + 'px',
+          failureMessage(index, 'top', expectedPosition.top + 'px', element.style.top, phase))
+    }
+
+    it('should correctly layout remaining elements when first element is removed [columnWidth empty]', function() {
+      let wrapperContext;
+      class Wrapper extends React.Component {
+        constructor() {
+          super();
+          this.state = {
+            items: localChildrenElements.slice()
+          };
+
+          wrapperContext = this;
+        }
+
+        render() {
+          return (
+            <MasonryComponent className="container" elementType="ul" options={{transitionDuration: 0}}>
+              {
+                this.state.items.map(function(item, i) {
+                  return <li key={item.k} className={`item ${item.cn}`}></li>
+                })
+              }
+            </MasonryComponent>
+          );
+        }
+      }
+
+      let div = document.createElement('div');
+      document.body.appendChild(div);
+
+      ReactDOM.render(<Wrapper />, div);
+
+      const firstElements = div.querySelectorAll('.item');
+
+      for (let i = 0; i < firstElements.length; i++) {
+        expectElementPositionToMatch(firstElements[i], firstPositions[i], i, 'before removal');
+      }
+
+      wrapperContext.setState({items: localChildrenElements.slice(1)});
+      const secondElements = div.querySelectorAll('.item');
+
+      for (let i = 0; i < secondElements.length; i++) {
+        expectElementPositionToMatch(secondElements[i], secondPositions[i], i, 'after removal');
+      }
+    });
+
+    it('should correctly layout remaining elements when first element is removed [columnWidth fixed]', function() {
+      let wrapperContext;
+      class Wrapper extends React.Component {
+        constructor() {
+          super();
+          this.state = {
+            items: localChildrenElements.slice()
+          };
+
+          wrapperContext = this;
+        }
+
+        render() {
+          return (
+            <MasonryComponent className="container" elementType="ul" options={{transitionDuration: 0, columnWidth: 60}}>
+              {
+                this.state.items.map(function(item, i) {
+                  return <li key={item.k} className={`item ${item.cn}`}></li>
+                })
+              }
+            </MasonryComponent>
+          );
+        }
+      }
+
+      let div = document.createElement('div');
+      document.body.appendChild(div);
+
+      ReactDOM.render(<Wrapper />, div);
+
+      const firstElements = div.querySelectorAll('.item');
+
+      for (let i = 0; i < firstElements.length; i++) {
+        expectElementPositionToMatch(firstElements[i], firstPositions[i], i, 'before removal');
+      }
+
+      wrapperContext.setState({items: localChildrenElements.slice(1)});
+      const secondElements = div.querySelectorAll('.item');
+
+      for (let i = 0; i < secondElements.length; i++) {
+        expectElementPositionToMatch(secondElements[i], secondPositions[i], i, 'after removal');
       }
     });
   });
