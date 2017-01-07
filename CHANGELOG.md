@@ -1,3 +1,7 @@
+5.0.2
+=====
+- Fixes es6 syntax used in index.js
+
 5.0.1
 =====
 - reverted 5.0.0 change
