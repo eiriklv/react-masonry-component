@@ -1,3 +1,8 @@
+5.0.3
+=====
+- Fixes `let` to `var`
+- DEV-ONLY Adds eslint
+
 5.0.2
 =====
 - Fixes es6 syntax used in index.js
