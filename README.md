@@ -131,7 +131,7 @@ you can do so by using `refs`.
      render: function () {
          return (
              <Masonry
-                 ref={function(c) {this.masonry = c.masonry;}.bind(this)}
+                 ref={function(c) {this.masonry = this.masonry || c.masonry;}.bind(this)}
              >
                  {...}
              </Masonry>
