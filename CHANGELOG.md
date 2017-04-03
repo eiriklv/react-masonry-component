@@ -1,3 +1,7 @@
+5.0.4
+=====
+- Correctly removes onRemoveComplete listener
+
 5.0.3
 =====
 - Fixes `let` to `var`
