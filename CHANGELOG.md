@@ -1,3 +1,7 @@
+5.0.5
+=====
+- Switch to create-react-class and prop-types libraries
+
 5.0.4
 =====
 - Correctly removes onRemoveComplete listener

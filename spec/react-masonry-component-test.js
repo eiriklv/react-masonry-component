@@ -1,4 +1,4 @@
-const TestUtils = require('react-addons-test-utils');
+const TestUtils = require('react-dom/test-utils');
 const React = require('react');
 const ReactDOM = require('react-dom');
 const MasonryComponent = require('../lib');
@@ -397,11 +397,11 @@ describe('React Masonry Component', function() {
   });
 
   it('should provide a reference to the Masonry instance', function() {
-    const Wrapper = React.createClass({
+    class Wrapper extends React.Component {
       render() {
         return <MasonryComponent ref={c => this.masonry = c.masonry}/>
       }
-    });
+    }
 
     const component = TestUtils.renderIntoDocument(<Wrapper/>);
     const ml = require('masonry-layout');
@@ -426,7 +426,7 @@ describe('React Masonry Component', function() {
       return <li key={index}>{child}</li>
     });
 
-    let Wrapper = React.createClass({
+    class Wrapper extends React.Component {
       render() {
         return (
           <MasonryComponent
@@ -437,7 +437,7 @@ describe('React Masonry Component', function() {
           </MasonryComponent>
         );
       }
-    });
+    }
 
     let div = document.createElement('div');
     document.body.appendChild(div);

@@ -5,12 +5,14 @@
   "description": "A masonry component for React.js",
   "typings": "typings.d.ts",
   "dependencies": {
+    "create-react-class": "^15.5.2",
     "element-resize-detector": "^1.1.9",
     "imagesloaded": "^4.0.0",
     "lodash.assign": "^4.0.9",
     "lodash.debounce": "^4.0.6",
     "lodash.omit": "^4.3.0",
-    "masonry-layout": "^4.0.0"
+    "masonry-layout": "^4.0.0",
+    "prop-types": "^15.5.8"
   },
   "devDependencies": {
     "babel-core": "^6.3.26",
@@ -31,7 +33,6 @@
     "mocha": "^2.3.4",
     "phantomjs": "^1.9.19",
     "react": "^15.4.1",
-    "react-addons-test-utils": "^15.4.0",
     "react-dom": "^15.4.1",
     "webpack": "^1.12.9"
   },
