@@ -1,3 +1,7 @@
+5.0.6
+=====
+- Adds support for TypeScript string columnWidth
+
 5.0.5
 =====
 - Switch to create-react-class and prop-types libraries
