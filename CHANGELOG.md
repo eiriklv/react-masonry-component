@@ -1,3 +1,7 @@
+5.0.7
+=====
+- Adds `horizontalOrder` to TypeScript Masonry options Interface
+
 5.0.6
 =====
 - Adds support for TypeScript string columnWidth

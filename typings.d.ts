@@ -5,6 +5,7 @@ export interface MasonryOptions {
     itemSelector?: string;
     gutter?: number;
     percentPosition?: boolean;
+    horizontalOrder?: boolean;
     stamp?: string;
     fitWidth?: boolean;
     originLeft?: boolean;
