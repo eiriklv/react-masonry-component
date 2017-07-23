@@ -21,7 +21,7 @@ if you wish to have IE8 support, v2 with React 0.14 is the highest version avail
 A React.js Masonry component. (Also available as a [mixin](https://github.com/eiriklv/react-masonry-mixin) if needed)
 
 #### Live demo:
-[hearsay.me](http://www.hearsay.me)
+[hearsay.me](http://hearsay-frontend.herokuapp.com)
 
 #### Usage:
 
@@ -145,7 +145,7 @@ you can do so by using `refs`.
 ##### Events
 
 - `onImagesLoaded` - triggered when all images are loaded or after each image is loaded when `updateOnEachImageLoad` is set to `true`
-- `onLayoutComplete` - triggered after a layout and all positioning transitions have completed. 
+- `onLayoutComplete` - triggered after a layout and all positioning transitions have completed.
 - `onRemoveComplete` - triggered after an item element has been removed
 
 ```jsx
