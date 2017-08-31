@@ -17,6 +17,7 @@ export interface MasonryOptions {
 }
 
 export interface MasonryPropTypes {
+    enableResizableChildren?: boolean;
     disableImagesLoaded?: boolean;
     updateOnEachImageLoad?: boolean;
     onImagesLoaded?: (instance: any) => void;
