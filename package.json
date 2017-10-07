@@ -29,7 +29,7 @@
     "karma-sourcemap-loader": "^0.3.7",
     "karma-webpack": "^1.8.1",
     "mocha": "^2.3.4",
-    "phantomjs": "^1.9.19",
+    "phantomjs-prebuilt": "^2.1.15",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
     "webpack": "^1.12.9"
