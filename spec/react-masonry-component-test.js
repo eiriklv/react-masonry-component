@@ -3,7 +3,7 @@ const React = require('react');
 const ReactDOM = require('react-dom');
 const MasonryComponent = require('../lib');
 const expect = require('expect');
-const assign = require('lodash.assign');
+const assign = require('lodash/assign');
 
 const masonryOptions = {
   columnWidth: 60

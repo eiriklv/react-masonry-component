@@ -1,3 +1,8 @@
+6.0.0
+=====
+- Updates React peer dependencies to include React@16.0.0
+- Uses Lodash library as dependency instead of individual lodash methods
+
 5.0.7
 =====
 - Adds `horizontalOrder` to TypeScript Masonry options Interface
