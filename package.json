@@ -5,7 +5,7 @@
   "description": "A masonry component for React.js",
   "typings": "typings.d.ts",
   "dependencies": {
-    "create-react-class": "^15.5.2",
+    "create-react-class": "^15.6.2",
     "element-resize-detector": "^1.1.9",
     "imagesloaded": "^4.0.0",
     "lodash": "^4.17.4",
@@ -30,8 +30,8 @@
     "karma-webpack": "^1.8.1",
     "mocha": "^2.3.4",
     "phantomjs": "^1.9.19",
-    "react": "^15.4.1",
-    "react-dom": "^15.4.1",
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0",
     "webpack": "^1.12.9"
   },
   "peerDependencies": {
