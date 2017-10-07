@@ -6,6 +6,7 @@ module.exports = function (config) {
         singleRun: true,
         frameworks: ['mocha'],
         files: [
+            '../../node_modules/babel-polyfill/dist/polyfill.js',
             {pattern: '../*-test.js', watched: false},
             {pattern: '../**/*-test.js', watched: false},
             'test-style.css'
