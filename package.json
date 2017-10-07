@@ -1,6 +1,6 @@
 {
   "name": "react-masonry-component",
-  "version": "5.0.7",
+  "version": "6.0.0",
   "main": "./lib/index",
   "description": "A masonry component for React.js",
   "typings": "typings.d.ts",
