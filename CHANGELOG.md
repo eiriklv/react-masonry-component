@@ -2,6 +2,7 @@
 =====
 - Updates React peer dependencies to include React@16.0.0
 - Uses Lodash library as dependency instead of individual lodash methods
+- Fixes children.length check on diff
 
 5.0.7
 =====
