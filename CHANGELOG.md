@@ -1,3 +1,7 @@
+6.0.1
+=====
+- Removes string style refs
+
 6.0.0
 =====
 - Updates React peer dependencies to include React@16.0.0
