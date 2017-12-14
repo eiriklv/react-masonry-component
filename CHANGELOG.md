@@ -1,3 +1,8 @@
+6.0.2
+=====
+- Allows gutter to be a number or string (Typescript)
+- Refactors item reloading to prevent race conditions
+
 6.0.1
 =====
 - Removes string style refs
