@@ -17,16 +17,17 @@ export interface MasonryOptions {
 }
 
 export interface MasonryPropTypes {
-    enableResizableChildren?: boolean;
-    disableImagesLoaded?: boolean;
-    updateOnEachImageLoad?: boolean;
-    onImagesLoaded?: (instance: any) => void;
-    options?: MasonryOptions;
-    className?: string;
-    elementType?: string;
-    style?: Object;
-    onLayoutComplete?: (instance: any) => void;
-    onRemoveComplete?: (instance: any) => void;
+	enableResizableChildren?: boolean;
+	disableImagesLoaded?: boolean;
+	updateOnEachImageLoad?: boolean;
+	onImagesLoaded?: (instance: any) => void;
+	options?: MasonryOptions;
+	className?: string;
+	elementType?: string;
+	style?: Object;
+	onLayoutComplete?: (instance: any) => void;
+	onRemoveComplete?: (instance: any) => void;
+	updateOnEachComponentUpdate?: boolean;
 }
 
 declare const Masonry: ComponentClass<MasonryPropTypes>;
