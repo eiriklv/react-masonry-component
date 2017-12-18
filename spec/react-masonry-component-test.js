@@ -26,7 +26,7 @@ describe('React Masonry Component', function() {
       },
       onRemoveComplete: function() {
       },
-	  updateOnEachComponentUpdate: true
+      updateOnEachComponentUpdate: true
     });
   });
 
@@ -345,15 +345,15 @@ describe('React Masonry Component', function() {
       }
 
       wrapperContext.setState({items: localChildrenElements.slice(1)});
-		  
-	  setTimeout(function(){
+
+      setTimeout(function(){
         const secondElements = div.querySelectorAll('.item');
 
         for (let i = 0; i < secondElements.length; i++) {
           expectElementPositionToMatch(secondElements[i], secondPositions[i], i, 'after removal');
         }
-	    done();
-	  }, 500);
+        done();
+      }, 500);
     });
 
     it('should correctly layout remaining elements when first element is removed [columnWidth fixed]', function() {
