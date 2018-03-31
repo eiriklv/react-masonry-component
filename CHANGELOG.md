@@ -1,3 +1,12 @@
+6.1.0
+=====
+#### New Features
+- Adds ability to pass in `imagesloaded` options to be passed on by React Masonry Component
+
+#### Bug Fixes
+- Removes old imagesloaded listeners so there is only ever 1 active listener.
+- Correctly cleans up reference to imagesloaded handlers when the component is unmounted
+
 6.0.2
 =====
 - Allows gutter to be a number or string (Typescript)
