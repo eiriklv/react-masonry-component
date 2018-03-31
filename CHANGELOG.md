@@ -2,6 +2,7 @@
 =====
 #### New Features
 - Adds ability to pass in `imagesloaded` options to be passed on by React Masonry Component
+- Adds `number` type to the transitionDuration property on the Options TypeScript Interface
 
 #### Bug Fixes
 - Removes old imagesloaded listeners so there is only ever 1 active listener.
