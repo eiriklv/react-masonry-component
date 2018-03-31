@@ -11,7 +11,7 @@ export interface MasonryOptions {
     originLeft?: boolean;
     originTop?: boolean;
     containerStyle?: Object;
-    transitionDuration?: string;
+    transitionDuration?: number;
     resize?: boolean;
     initLayout?: boolean;
 }
