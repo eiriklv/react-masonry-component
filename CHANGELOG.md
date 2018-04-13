@@ -1,4 +1,9 @@
-6.1.0
+6.2.0
+=====
+- columnWidth TypeScript interface now also supports HTMLElement or null
+- transitionDuration TypeScript interface now also supports a string
+
+6.1.1
 =====
 #### New Features
 - Adds ability to pass in `imagesloaded` options to be passed on by React Masonry Component
