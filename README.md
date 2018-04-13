@@ -12,10 +12,8 @@ if you wish to have IE8 support, v2 with React 0.14 is the highest version avail
   1. [Basic usage](#basic-usage)
   2. [Custom props](#custom-props)
   3. [Accessing Masonry instance](#accessing-masonry-instance)
-  4. [Events](#events)
-3. [Using with Webpack](#using-with-webpack)
-  1. [Dependencies](#dependencies)
-  2. [Webpack config \[DEPRECATED\]](#webpack-config)
+  4. [Images Loaded Options](#images-loaded-options)
+  5. [Events](#events)
 
 #### Introduction:
 A React.js Masonry component. (Also available as a [mixin](https://github.com/eiriklv/react-masonry-mixin) if needed)
@@ -33,24 +31,24 @@ A React.js Masonry component. (Also available as a [mixin](https://github.com/ei
 
 ##### Basic usage
 ``` npm install --save react-masonry-component```
-```js
-var React = require('react');
-var Masonry = require('react-masonry-component');
+```jsx
+import * as React from 'react';
+import Masonry from 'react-masonry-component';
 
-var masonryOptions = {
+const masonryOptions = {
     transitionDuration: 0
 };
 
-var Gallery = React.createClass({
-    render: function () {
-        var childElements = this.props.elements.map(function(element){
+class Gallery extends React.Component {
+    render() {
+        const childElements = this.props.elements.map(function(element){
            return (
                 <li className="image-element-class">
                     <img src={element.src} />
                 </li>
             );
         });
-
+    
         return (
             <Masonry
                 className={'my-gallery-class'} // default ''
@@ -58,14 +56,15 @@ var Gallery = React.createClass({
                 options={masonryOptions} // default {}
                 disableImagesLoaded={false} // default false
                 updateOnEachImageLoad={false} // default false and works only if disableImagesLoaded is false
+                imagesLoadedOptions={imagesLoadedOptions} // default {}
             >
                 {childElements}
             </Masonry>
         );
     }
-});
+}
 
-module.exports = Gallery;
+export default Gallery;
 ```
 
 ES6-style modules are also supported, just use:
@@ -77,22 +76,21 @@ import Masonry from 'react-masonry-component';
 ##### Custom props
 You can also include your own custom props - EG: inline-style and event handlers.
 
-```js
-var React = require('react');
-var Masonry = require('react-masonry-component');
+```jsx
+import * as React from 'react';
+import Masonry from 'react-masonry-component';
 
-var masonryOptions = {
+const masonryOptions = {
     transitionDuration: 0
 };
 
-var style = {
+const style = {
     backgroundColor: 'tomato'
 };
 
-var Gallery = React.createClass({
-    handleClick: function() { },
-
-    render: function () {
+class Gallery extends React.Component {
+    handleClick() {}
+    render() {
         return (
             <Masonry
                 className={'my-gallery-class'}
@@ -103,32 +101,31 @@ var Gallery = React.createClass({
             </Masonry>
         );
     }
-});
+}
 
-module.exports = Gallery;
+export default Gallery;
 ```
 
 ##### Accessing Masonry instance
 Should you need to access the instance of Masonry (for example to listen to masonry events)
 you can do so by using `refs`.
 
- ```js
- var React = require('react');
- var Masonry = require('react-masonry-component');
+```jsx
+import * as React from 'react';
+import Masonry from 'react-masonry-component';
 
+class Gallery extends React.Component {
+    handleLayoutComplete() { },
 
- var Gallery = React.createClass({
-    handleLayoutComplete: function() { },
-
-    componentDidMount: function() {
+    componentDidMount() {
         this.masonry.on('layoutComplete', this.handleLayoutComplete);
     },
 
-    componentWillUnmount: function() {
+    componentWillUnmount() {
         this.masonry.off('layoutComplete', this.handleLayoutComplete);
     },
 
-     render: function () {
+     render() {
          return (
              <Masonry
                  ref={function(c) {this.masonry = this.masonry || c.masonry;}.bind(this)}
@@ -137,10 +134,42 @@ you can do so by using `refs`.
              </Masonry>
          );
      }
- });
+}
 
- module.exports = Gallery;
- ```
+export default Gallery;
+```
+ 
+##### Images Loaded Options
+React Masonry Component uses Desandro's `imagesloaded` library to detect when images have loaded. Should you want to pass
+options down to it then you need to populate the `imagesLoadedOptions` property on React Masonry Component.
+
+This will most commonly be used when the elements in your gallery have CSS background images and you want to capture their
+load event. More info availabe on the [imagesloaded website](https://imagesloaded.desandro.com/#background).
+
+eg:
+```jsx
+import * as React from 'react';
+import Masonry from 'react-masonry-component';
+
+class Gallery extends React.Component {
+  render() {
+    const imagesLoadedOptions = { background: '.my-bg-image-el' }
+    
+    return (
+        <Masonry
+            className={'my-gallery-class'}
+            elementType={'ul'}
+            options={masonryOptions}
+            imagesLoadedOptions={imagesLoadedOptions}
+        >
+            <div className="my-bg-image-el"></div>
+        </Masonry>
+    );
+  }
+}
+
+export default Gallery;
+```
 
 ##### Events
 
@@ -149,14 +178,14 @@ you can do so by using `refs`.
 - `onRemoveComplete` - triggered after an item element has been removed
 
 ```jsx
-var Gallery = React.createClass({
-    componentDidMount: function() {
+class Gallery extends React.Component {
+    componentDidMount() {
         this.hide();
     },
-    handleImagesLoaded: function(imagesLoadedInstance) {
+    handleImagesLoaded(imagesLoadedInstance) {
         this.show();
     },
-    render: function(){
+    render() {
         return (
             <Masonry
                 onImagesLoaded={this.handleImagesLoaded}
@@ -167,32 +196,5 @@ var Gallery = React.createClass({
             </Masonry>
         )
     }
-});
-```
-
-#### Using with Webpack [Deprecated: this hack is no longer needed with masonry-layout 4.x]
-Because webpack resolves AMD first, you need to use the imports-loader in order to disable AMD
-and require as commonJS modules.
-
-##### Dependencies
-First ensure you have the imports-loader installed
-```sh
-npm install imports-loader --save
-```
-
-##### Webpack config
-Then add the rules for the imports-loader to your webpack config.
-The `babel-loader` is used below to show how you can use the 2 together.
-```js
-loaders: [
-    {
-        test: /\.jsx?$/,
-        exclude: /node_modules/,
-        loader: 'babel'
-    },
-    {
-        test: /masonry|imagesloaded|fizzy\-ui\-utils|desandro\-|outlayer|get\-size|doc\-ready|eventie|eventemitter/,
-        loader: 'imports?define=>false&this=>window'
-    }
-]
+}
 ```
