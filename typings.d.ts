@@ -1,7 +1,7 @@
 import { ComponentClass } from "react";
 
 export interface MasonryOptions {
-    columnWidth?: number | string;
+    columnWidth?: number | string | HTMLElement | null;
     itemSelector?: string;
     gutter?: number | string;
     percentPosition?: boolean;
