@@ -39,6 +39,8 @@ const masonryOptions = {
     transitionDuration: 0
 };
 
+const imagesLoadedOptions = { background: '.my-bg-image-el' }
+
 class Gallery extends React.Component {
     render() {
         const childElements = this.props.elements.map(function(element){
