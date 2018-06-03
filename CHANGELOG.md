@@ -1,3 +1,7 @@
+6.2.1
+====
+- Fixes bug on unmounting compononent with disablesImagesLoaded set to true
+
 6.2.0
 =====
 - columnWidth TypeScript interface now also supports HTMLElement or null
