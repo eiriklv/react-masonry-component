@@ -33,3 +33,7 @@
     height:  90px;
     background-color: lightgoldenrodyellow;
 }
+
+.item.imagesloaded {
+    background: url(data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7);
+}

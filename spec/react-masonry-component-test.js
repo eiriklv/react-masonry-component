@@ -12,98 +12,233 @@ const masonryOptions = {
 const childrenElements = ['h4', 'h3', 'h3', 'w2', 'h2'];
 
 describe('React Masonry Component', function() {
-  it('should set correct default props', function() {
-    const component = TestUtils.renderIntoDocument(<MasonryComponent/>);
+  describe('Core features', function() {
+    it('should set correct default props', function() {
+      const component = TestUtils.renderIntoDocument(<MasonryComponent/>);
 
-    expect(component.props).toEqual({
-      enableResizableChildren: false,
-      disableImagesLoaded: false,
-      updateOnEachImageLoad: false,
-      options: {},
-      className: '',
-      elementType: 'div',
-      onLayoutComplete: function() {
-      },
-      onRemoveComplete: function() {
+      expect(component.props).toEqual({
+        enableResizableChildren: false,
+        disableImagesLoaded: false,
+        updateOnEachImageLoad: false,
+        options: {},
+        imagesLoadedOptions: {},
+        className: '',
+        elementType: 'div',
+        onLayoutComplete: function() {
+        },
+        onRemoveComplete: function() {
+        }
+      });
+    });
+
+    it('should render container with correct elementType', function() {
+      const componentDiv = TestUtils.renderIntoDocument(<MasonryComponent/>);
+      const componentSection = TestUtils.renderIntoDocument(<MasonryComponent elementType="section"/>);
+
+      expect(TestUtils.scryRenderedDOMComponentsWithTag(componentDiv, 'div').length).toEqual(1);
+      expect(TestUtils.scryRenderedDOMComponentsWithTag(componentSection, 'section').length).toEqual(1);
+      expect(TestUtils.scryRenderedDOMComponentsWithTag(componentSection, 'div').length).toEqual(0);
+    });
+
+    it('should render container with correct className', function() {
+      const component = TestUtils.renderIntoDocument(<MasonryComponent/>);
+      const componentWithClass = TestUtils.renderIntoDocument(<MasonryComponent className="my-class"/>);
+
+      expect(TestUtils.scryRenderedDOMComponentsWithClass(component, '').length).toEqual(1);
+      expect(TestUtils.scryRenderedDOMComponentsWithClass(componentWithClass, 'my-class').length).toEqual(1);
+    });
+
+    it('should provide a reference to the Masonry instance', function() {
+      class Wrapper extends React.Component {
+        render() {
+          return <MasonryComponent ref={c => this.masonry = c.masonry}/>
+        }
       },
       updateOnEachComponentUpdate: true
+
+      const component = TestUtils.renderIntoDocument(<Wrapper/>);
+      const ml = require('masonry-layout');
+      expect(component.masonry instanceof ml).toEqual(true);
     });
-  });
 
-  it('should render container with correct elementType', function() {
-    const componentDiv = TestUtils.renderIntoDocument(<MasonryComponent/>);
-    const componentSection = TestUtils.renderIntoDocument(<MasonryComponent elementType="section"/>);
+    it('should support events as props', function(done) {
+      let passed = {
+        layoutComplete: false,
+        removeComplete: false
+      };
+      const layoutEventHandler = function() {
+        passed.layoutComplete = true;
+      };
+      const removeEventHandler = function() {
+        passed.removeComplete = true;
+      };
 
-    expect(TestUtils.scryRenderedDOMComponentsWithTag(componentDiv, 'div').length).toEqual(1);
-    expect(TestUtils.scryRenderedDOMComponentsWithTag(componentSection, 'section').length).toEqual(1);
-    expect(TestUtils.scryRenderedDOMComponentsWithTag(componentSection, 'div').length).toEqual(0);
-  });
+      let masonry;
 
-  it('should render container with correct className', function() {
-    const component = TestUtils.renderIntoDocument(<MasonryComponent/>);
-    const componentWithClass = TestUtils.renderIntoDocument(<MasonryComponent className="my-class"/>);
+      let children = childrenElements.slice().map(function(child, index) {
+        return <li key={index}>{child}</li>
+      });
 
-    expect(TestUtils.scryRenderedDOMComponentsWithClass(component, '').length).toEqual(1);
-    expect(TestUtils.scryRenderedDOMComponentsWithClass(componentWithClass, 'my-class').length).toEqual(1);
-  });
+      class Wrapper extends React.Component {
+        render() {
+          return (
+            <MasonryComponent
+              onLayoutComplete={layoutEventHandler}
+              onRemoveComplete={removeEventHandler}
+              ref={c => masonry = c.masonry}>
+              {children}
+            </MasonryComponent>
+          );
+        }
+      }
 
-  it('should render children', function() {
-    const component = TestUtils.renderIntoDocument(
-      <MasonryComponent className="container" elementType="ul" options={masonryOptions}>
+      let div = document.createElement('div');
+      document.body.appendChild(div);
+
+      ReactDOM.render(<Wrapper/>, div);
+
+      masonry.remove(children[0]);
+
+      this.timeout(3000);
+
+      setTimeout(function() {
+        expect(passed).toEqual({
+          layoutComplete: true,
+          removeComplete: true
+        });
+        done();
+      }, 2000);
+    });
+
+    it('should render children', function() {
+      const component = TestUtils.renderIntoDocument(
+        <MasonryComponent className="container" elementType="ul" options={masonryOptions}>
+          {
+            childrenElements.map(function(cn, i) {
+              return <li key={i} className={`item ${cn}`}></li>
+            })
+          }
+        </MasonryComponent>
+      );
+
+      const children = TestUtils.scryRenderedDOMComponentsWithClass(component, 'item');
+      expect(children.length).toEqual(5);
+    });
+
+    it('should apply Masonry goodness', function() {
+      const Component = <MasonryComponent className="container" elementType="ul" options={masonryOptions}>
         {
           childrenElements.map(function(cn, i) {
             return <li key={i} className={`item ${cn}`}></li>
           })
         }
-      </MasonryComponent>
-    );
+      </MasonryComponent>;
 
-    const children = TestUtils.scryRenderedDOMComponentsWithClass(component, 'item');
-    expect(children.length).toEqual(5);
+      let div = document.createElement('div');
+      document.body.appendChild(div);
+
+      ReactDOM.render(Component, div);
+
+      const elements = div.querySelectorAll('.item');
+      const positions = {
+        0: {
+          left: 0,
+          top: 0
+        },
+        1: {
+          left: 60,
+          top: 0
+        },
+        2: {
+          left: 120,
+          top: 0
+        },
+        3: {
+          left: 60,
+          top: 70
+        },
+        4: {
+          left: 0,
+          top: 90
+        }
+      };
+
+      for (let i = 0; i < elements.length; i++) {
+        expect(elements[i].style.left).toEqual(positions[i].left + 'px');
+        expect(elements[i].style.top).toEqual(positions[i].top + 'px');
+      }
+    });
   });
 
-  it('should apply Masonry goodness', function() {
-    const Component = <MasonryComponent className="container" elementType="ul" options={masonryOptions}>
-      {
-        childrenElements.map(function(cn, i) {
-          return <li key={i} className={`item ${cn}`}></li>
-        })
+  describe('imagesloaded usage', function() {
+    it('should fire the images loaded event when all images have loaded', function(done) {
+      const handleImagesLoaded = (instance) => {
+        expect(instance.hasAnyBroken).toEqual(false);
+        expect(instance.progressedCount).toEqual(1);
+        expect(instance.isComplete).toEqual(true);
+        done();
+      };
+
+      class Wrapper extends React.Component {
+        constructor() {
+          super();
+        }
+
+        render() {
+          return (
+            <MasonryComponent
+              className="container"
+              elementType="div"
+              options={assign({}, masonryOptions, {transitionDuration: 0})}
+              onImagesLoaded={handleImagesLoaded}
+            >
+                <img className="item" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" />
+            </MasonryComponent>
+          );
+        }
       }
-    </MasonryComponent>;
 
-    let div = document.createElement('div');
-    document.body.appendChild(div);
+      let div = document.createElement('div');
+      document.body.appendChild(div);
 
-    ReactDOM.render(Component, div);
+      ReactDOM.render(<Wrapper />, div);
+    });
 
-    const elements = div.querySelectorAll('.item');
-    const positions = {
-      0: {
-        left: 0,
-        top: 0
-      },
-      1: {
-        left: 60,
-        top: 0
-      },
-      2: {
-        left: 120,
-        top: 0
-      },
-      3: {
-        left: 60,
-        top: 70
-      },
-      4: {
-        left: 0,
-        top: 90
+    it('should fire the images loaded event when listening for background images', function(done) {
+      const imagesLoadedOptions = {background: '.imagesloaded'};
+      const handleImagesLoaded = (instance) => {
+        expect(instance.hasAnyBroken).toEqual(false);
+        expect(instance.progressedCount).toEqual(1);
+        expect(instance.isComplete).toEqual(true);
+        expect(instance.options).toEqual(imagesLoadedOptions);
+        done();
+      };
+
+      class Wrapper extends React.Component {
+        constructor() {
+          super();
+        }
+
+        render() {
+          return (
+            <MasonryComponent
+              className="container"
+              elementType="div"
+              options={assign({}, masonryOptions, {transitionDuration: 0})}
+              imagesLoadedOptions={imagesLoadedOptions}
+              onImagesLoaded={handleImagesLoaded}
+            >
+              <div className="item imagesloaded"></div>
+            </MasonryComponent>
+          );
+        }
       }
-    };
 
-    for (let i = 0; i < elements.length; i++) {
-      expect(elements[i].style.left).toEqual(positions[i].left + 'px');
-      expect(elements[i].style.top).toEqual(positions[i].top + 'px');
-    }
+      let div = document.createElement('div');
+      document.body.appendChild(div);
+
+      ReactDOM.render(<Wrapper />, div);
+    });
   });
 
   describe('laying out new elements', function() {
@@ -399,66 +534,5 @@ describe('React Masonry Component', function() {
         expectElementPositionToMatch(secondElements[i], secondPositions[i], i, 'after removal');
       }
     });
-  });
-
-  it('should provide a reference to the Masonry instance', function() {
-    class Wrapper extends React.Component {
-      render() {
-        return <MasonryComponent ref={c => this.masonry = c.masonry}/>
-      }
-    }
-
-    const component = TestUtils.renderIntoDocument(<Wrapper/>);
-    const ml = require('masonry-layout');
-    expect(component.masonry instanceof ml).toEqual(true);
-  });
-
-  it('should support events as props', function(done) {
-    let passed = {
-      layoutComplete: false,
-      removeComplete: false
-    };
-    const layoutEventHandler = function() {
-      passed.layoutComplete = true;
-    };
-    const removeEventHandler = function() {
-      passed.removeComplete = true;
-    };
-
-    let masonry;
-
-    let children = childrenElements.slice().map(function(child, index) {
-      return <li key={index}>{child}</li>
-    });
-
-    class Wrapper extends React.Component {
-      render() {
-        return (
-          <MasonryComponent
-            onLayoutComplete={layoutEventHandler}
-            onRemoveComplete={removeEventHandler}
-            ref={c => masonry = c.masonry}>
-            {children}
-          </MasonryComponent>
-        );
-      }
-    }
-
-    let div = document.createElement('div');
-    document.body.appendChild(div);
-
-    ReactDOM.render(<Wrapper/>, div);
-
-    masonry.remove(children[0]);
-
-    this.timeout(3000);
-
-    setTimeout(function() {
-      expect(passed).toEqual({
-        layoutComplete: true,
-        removeComplete: true
-      });
-      done();
-    }, 2000);
   });
 });

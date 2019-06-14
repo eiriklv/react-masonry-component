@@ -1,3 +1,22 @@
+6.2.1
+====
+- Fixes bug on unmounting compononent with disablesImagesLoaded set to true
+
+6.2.0
+=====
+- columnWidth TypeScript interface now also supports HTMLElement or null
+- transitionDuration TypeScript interface now also supports a string
+
+6.1.1
+=====
+#### New Features
+- Adds ability to pass in `imagesloaded` options to be passed on by React Masonry Component
+- Adds `number` type to the transitionDuration property on the Options TypeScript Interface
+
+#### Bug Fixes
+- Removes old imagesloaded listeners so there is only ever 1 active listener.
+- Correctly cleans up reference to imagesloaded handlers when the component is unmounted
+
 6.0.2
 =====
 - Allows gutter to be a number or string (Typescript)
