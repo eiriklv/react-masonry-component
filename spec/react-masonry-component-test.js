@@ -27,7 +27,8 @@ describe('React Masonry Component', function() {
         onLayoutComplete: function() {
         },
         onRemoveComplete: function() {
-        }
+        },
+        updateOnEachComponentUpdate: true
       });
     });
 
@@ -53,8 +54,7 @@ describe('React Masonry Component', function() {
         render() {
           return <MasonryComponent ref={c => this.masonry = c.masonry}/>
         }
-      },
-      updateOnEachComponentUpdate: true
+      }
 
       const component = TestUtils.renderIntoDocument(<Wrapper/>);
       const ml = require('masonry-layout');
