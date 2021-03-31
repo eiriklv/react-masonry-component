@@ -36,7 +36,7 @@
     "webpack": "^1.12.9"
   },
   "peerDependencies": {
-    "react": "^0.14.0 || ^15.0.0-0 || ^16.0.0-0"
+    "react": "^0.14.0 || ^15.0.0-0 || ^16.0.0-0 || ^17.0.0"
   },
   "scripts": {
     "test": "npm run lint && karma start spec/setup/karma.conf.js",
