@@ -1,3 +1,7 @@
+6.3.0
+====
+- Support React 17
+
 6.2.1
 ====
 - Fixes bug on unmounting compononent with disablesImagesLoaded set to true
