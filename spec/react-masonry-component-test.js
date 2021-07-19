@@ -27,7 +27,8 @@ describe('React Masonry Component', function() {
         onLayoutComplete: function() {
         },
         onRemoveComplete: function() {
-        }
+        },
+        updateOnEachComponentUpdate: true
       });
     });
 
@@ -442,7 +443,7 @@ describe('React Masonry Component', function() {
           failureMessage(index, 'top', expectedPosition.top + 'px', element.style.top, phase))
     }
 
-    it('should correctly layout remaining elements when first element is removed [columnWidth empty]', function() {
+    it('should correctly layout remaining elements when first element is removed [columnWidth empty]', function(done) {
       let wrapperContext;
       class Wrapper extends React.Component {
         constructor() {
@@ -479,11 +480,15 @@ describe('React Masonry Component', function() {
       }
 
       wrapperContext.setState({items: localChildrenElements.slice(1)});
-      const secondElements = div.querySelectorAll('.item');
 
-      for (let i = 0; i < secondElements.length; i++) {
-        expectElementPositionToMatch(secondElements[i], secondPositions[i], i, 'after removal');
-      }
+      setTimeout(function(){
+        const secondElements = div.querySelectorAll('.item');
+
+        for (let i = 0; i < secondElements.length; i++) {
+          expectElementPositionToMatch(secondElements[i], secondPositions[i], i, 'after removal');
+        }
+        done();
+      }, 500);
     });
 
     it('should correctly layout remaining elements when first element is removed [columnWidth fixed]', function() {
