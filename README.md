@@ -19,7 +19,7 @@ if you wish to have IE8 support, v2 with React 0.14 is the highest version avail
 A React.js Masonry component. (Also available as a [mixin](https://github.com/eiriklv/react-masonry-mixin) if needed)
 
 #### Live demo:
-[hearsay.me](http://hearsay-frontend.herokuapp.com)
+[hearsay.me](https://hearsay-frontend.herokuapp.com)
 
 #### Usage:
 

@@ -1,6 +1,6 @@
 {
   "name": "react-masonry-component",
-  "version": "6.2.1",
+  "version": "6.3.0",
   "main": "./lib/index",
   "description": "A masonry component for React.js",
   "typings": "typings.d.ts",
@@ -36,7 +36,7 @@
     "webpack": "^1.12.9"
   },
   "peerDependencies": {
-    "react": "^0.14.0 || ^15.0.0-0 || ^16.0.0-0"
+    "react": "^0.14.0 || ^15.0.0-0 || ^16.0.0-0 || ^17.0.0"
   },
   "scripts": {
     "test": "npm run lint && karma start spec/setup/karma.conf.js",
