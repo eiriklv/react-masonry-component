@@ -21,9 +21,10 @@ export interface MasonryPropTypes {
     disableImagesLoaded?: boolean;
     updateOnEachImageLoad?: boolean;
     onImagesLoaded?: (instance: any) => void;
-    options?: MasonryOptions;
+    options?: MasonryOptions; //done
     className?: string;
     elementType?: string;
+    imagesLoadedOptions?: Object;
     style?: Object;
     onLayoutComplete?: (instance: any) => void;
     onRemoveComplete?: (instance: any) => void;
