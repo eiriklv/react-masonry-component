@@ -16,6 +16,12 @@ export interface MasonryOptions {
     initLayout?: boolean;
 }
 
+// https://imagesloaded.desandro.com/#background
+export interface ImagesLoadedOptions {
+    background?: string
+    // something todo
+}
+
 export interface MasonryPropTypes {
     enableResizableChildren?: boolean;
     disableImagesLoaded?: boolean;
@@ -27,6 +33,9 @@ export interface MasonryPropTypes {
     style?: Object;
     onLayoutComplete?: (instance: any) => void;
     onRemoveComplete?: (instance: any) => void;
+    // for tsx
+    children?: any
+    imagesLoadedOptions?: ImagesLoadedOptions
 }
 
 declare const Masonry: ComponentClass<MasonryPropTypes>;
