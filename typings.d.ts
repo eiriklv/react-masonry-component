@@ -24,6 +24,7 @@ export interface MasonryPropTypes {
     options?: MasonryOptions;
     className?: string;
     elementType?: string;
+    imagesLoadedOptions?: Object;
     style?: Object;
     onLayoutComplete?: (instance: any) => void;
     onRemoveComplete?: (instance: any) => void;
