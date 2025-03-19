@@ -27,6 +27,7 @@ export interface MasonryPropTypes {
     style?: Object;
     onLayoutComplete?: (instance: any) => void;
     onRemoveComplete?: (instance: any) => void;
+    updateOnEachComponentUpdate?: boolean;
 }
 
 declare const Masonry: ComponentClass<MasonryPropTypes>;
