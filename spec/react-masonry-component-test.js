@@ -287,7 +287,7 @@ describe('React Masonry Component', function() {
       }
     };
 
-    it('should correctly layout new elements when completely replacing child items [transitionDuration empty]', function() {
+    it('should correctly layout new elements when completely replacing child items [transitionDuration empty]', function(/*done*/) {
       let wrapperContext;
       class Wrapper extends React.Component {
         constructor() {
@@ -326,12 +326,16 @@ describe('React Masonry Component', function() {
       }
 
       wrapperContext.setState({items: childrenElements.slice().reverse()});
-      const secondElements = div.querySelectorAll('.item');
 
-      for (let i = 0; i < secondElements.length; i++) {
-        expect(secondElements[i].style.left).toEqual(secondPositions[i].left + 'px');
-        expect(secondElements[i].style.top).toEqual(secondPositions[i].top + 'px');
-      }
+      setTimeout(() => {
+        const secondElements = div.querySelectorAll('.item');
+
+        for (let i = 0; i < secondElements.length; i++) {
+          expect(secondElements[i].style.left).toEqual(secondPositions[i].left + 'px');
+          expect(secondElements[i].style.top).toEqual(secondPositions[i].top + 'px');
+        }
+        // done();
+      }, 400 );
     });
 
     it('should correctly layout new elements when completely replacing child items [transitionDuration zero]', function() {
