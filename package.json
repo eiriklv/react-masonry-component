@@ -8,7 +8,9 @@
     "create-react-class": "^15.6.2",
     "element-resize-detector": "^1.1.9",
     "imagesloaded": "^4.0.0",
-    "lodash": "^4.17.4",
+    "just-debounce-it": "^1.0.1",
+    "just-merge": "^1.0.2",
+    "just-omit": "^1.0.1",
     "masonry-layout": "^4.2.0",
     "prop-types": "^15.5.8"
   },
