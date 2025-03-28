@@ -69,12 +69,6 @@ class Gallery extends React.Component {
 export default Gallery;
 ```
 
-ES6-style modules are also supported, just use:
-
-```js
-import Masonry from 'react-masonry-component';
-```
-
 ##### Custom props
 You can also include your own custom props - EG: inline-style and event handlers.
 
